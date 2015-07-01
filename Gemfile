@@ -23,3 +23,8 @@ group :test, :development do
   gem 'guard-rspec'
   gem 'spring-commands-rspec'
 end
+
+group :production, :staging do
+  gem 'rails_12factor', '0.0.3'
+  gem 'rails_stdout_logging', '0.0.3'
+end
