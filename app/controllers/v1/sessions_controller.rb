@@ -9,7 +9,7 @@ module V1
 
       if @user.valid_password?(params[:user][:password])
         sign_in :user, @user
-        render json: @user, serializer: V1::SessionSerializer
+        render json: @user, serializer: SessionSerializer
       else
         invalid_login_attempt
       end
