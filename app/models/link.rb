@@ -4,7 +4,7 @@ class Link < ActiveRecord::Base
   validates :url, presence: true
 
   def create_pdf
-    save_name = Time.now.to_i.to_s + ".pdf"
+    save_name = self.id.to_s + ".pdf"
 
     kit = PDFKit.new(self.url, page_size: "Letter",
                                disable_smart_shrinking: true,

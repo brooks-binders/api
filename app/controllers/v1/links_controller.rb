@@ -48,6 +48,16 @@ module V1
       head :no_content
     end
 
+    def pdf
+      skip_before_action :authenticate_user_from_token!
+
+      @link.create_pdf
+
+      html = File.read("#{Rails.root}/public/example.html")
+
+      render :text => html
+    end
+
     private
 
       def set_link
