@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Binder, type: :model do
   before :each do
-    @binder = create(:binder)
+    @binder = build(:binder)
   end
 
   it "has a valid factory" do
@@ -10,8 +10,8 @@ RSpec.describe Binder, type: :model do
   end
 
   it "has access to many links" do
-    link_one = create(:link)
-    link_two = create(:link)
+    link_one = build(:link)
+    link_two = build(:link)
     @binder.links << link_one
     @binder.links << link_two
     expect(@binder.links.length).to eq 2
