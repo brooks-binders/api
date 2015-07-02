@@ -28,7 +28,7 @@ RSpec.describe V1::LinksController, type: :routing do
     end
 
     it "routes to #pdf" do
-      expect(:get => "/api/v1/links/1/pdf").to route_to("v1/links#pdf", id: "1", format: :pdf)
+      expect(:get => "/api/v1/links/1/pdf").to route_to("v1/links#pdf", id: "1", format: :json)
     end
 
   end

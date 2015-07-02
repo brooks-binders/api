@@ -14,7 +14,9 @@ Rails.application.routes.draw do
       resources :binders, except: [:new, :edit]
       resources :links, except: [:new, :edit]
 
-      get 'links/:id/pdf', to: 'links#pdf', defaults: { format: :pdf }
+      get 'links/:id/pdf', to: 'links#pdf', defaults: { format: :json }
+      get 'binders/:id/pdf', to: 'binders#pdf', defaults: { format: :json }
+
     end
   end
 

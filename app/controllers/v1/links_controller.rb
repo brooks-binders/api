@@ -51,12 +51,6 @@ module V1
 
     def pdf
       path = @link.create_pdf.path
-      respond_to do |format|
-        format.html
-        format.pdf do
-          render pdf: path   # Excluding ".pdf" extension.
-        end
-      end
     end
 
     private

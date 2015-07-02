@@ -10,7 +10,8 @@ class Link < ActiveRecord::Base
                                disable_smart_shrinking: true,
                                disable_external_links: true,
                                disable_internal_links: true,
-                               print_media_type: true)
+                               print_media_type: true,
+                               minimum_font_size: 16)
     pdf = kit.to_pdf
     file = kit.to_file(Rails.root.join("public/pdfs/#{save_name}"));
   end

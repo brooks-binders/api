@@ -27,5 +27,9 @@ RSpec.describe V1::BindersController, type: :routing do
       expect(:delete => "/api/v1/binders/1").to route_to("v1/binders#destroy", :id => "1", :format => :json)
     end
 
+    it "routes to #pdf" do
+      expect(:get => "/api/v1/binders/1/pdf").to route_to("v1/binders#pdf", id: "1", format: :json)
+    end
+
   end
 end

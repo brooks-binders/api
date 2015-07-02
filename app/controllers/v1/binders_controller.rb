@@ -1,6 +1,6 @@
 module V1
   class BindersController < ApplicationController
-    before_action :set_binder, only: [:show, :update, :destroy]
+    before_action :set_binder, only: [:show, :update, :destroy, :pdf]
 
     # GET /binders
     def index
@@ -38,6 +38,14 @@ module V1
       @binder.destroy
 
       head :no_content
+    end
+
+    def pdf
+      if @binder.create_pdf_collection
+        head :created
+      else
+        head :unprocessable_entity
+      end
     end
 
     private

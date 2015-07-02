@@ -48,6 +48,8 @@ GEM
     coderay (1.1.0)
     colorize (0.7.7)
     columnize (0.9.0)
+    combine_pdf (0.2.2)
+      ruby-rc4 (>= 0.1.5)
     database_cleaner (1.4.1)
     debug_inspector (0.0.2)
     devise (3.5.1)
@@ -178,6 +180,7 @@ GEM
       rspec-mocks (~> 3.3.0)
       rspec-support (~> 3.3.0)
     rspec-support (3.3.0)
+    ruby-rc4 (0.1.5)
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
@@ -214,6 +217,7 @@ DEPENDENCIES
   active_model_serializers
   byebug
   colorize
+  combine_pdf
   database_cleaner
   devise
   factory_girl_rails
