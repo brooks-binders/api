@@ -16,4 +16,10 @@ RSpec.describe Link, type: :model do
     @link.binders << binder_two
     expect(@link.binders.length).to eq 2
   end
+
+  it "has a working create_pdf method" do
+    @link.url = "http://www.google.com"
+    @link.save
+    @link.create_pdf
+  end
 end

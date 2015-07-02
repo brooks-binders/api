@@ -2,4 +2,16 @@ class Link < ActiveRecord::Base
   has_and_belongs_to_many :binders
 
   validates :url, presence: true
+
+  def create_pdf
+    Rails.logger.debug self.inspect.light_red
+
+    kit = PDFKit.new(self.url, page_size: "Letter",
+                               disable_smart_shrinking: true,
+                               disable_external_links: true,
+                               disable_internal_links: true,
+                               print_media_type: true)
+    pdf = kit.to_pdf
+    file = kit.to_file(File.expand_path('/Users/g/Desktop/pdfs/yolo.pdf'))
+  end
 end
