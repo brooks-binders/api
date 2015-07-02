@@ -13,6 +13,8 @@ Rails.application.routes.draw do
       resource :login, only: [:create], controller: :sessions
       resources :binders, except: [:new, :edit]
       resources :links, except: [:new, :edit]
+
+      get 'links/:id/pdf', to: 'links#pdf', defaults: { format: :pdf }
     end
   end
 

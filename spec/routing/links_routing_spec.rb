@@ -27,5 +27,9 @@ RSpec.describe V1::LinksController, type: :routing do
       expect(:delete => "/api/v1/links/1").to route_to("v1/links#destroy", :id => "1", :format => :json)
     end
 
+    it "routes to #pdf" do
+      expect(:get => "/api/v1/links/1/pdf").to route_to("v1/links#pdf", id: "1", format: :pdf)
+    end
+
   end
 end

@@ -12,6 +12,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'wkhtmltopdf-binary'
 gem 'pdfkit'
+gem 'wicked_pdf'
 
 group :test, :development do
   gem 'rspec-rails'

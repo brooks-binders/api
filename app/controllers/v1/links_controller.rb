@@ -1,6 +1,7 @@
 module V1
   class LinksController < ApplicationController
-    before_action :set_link, only: [:show, :update, :destroy]
+    before_action :set_link, only: [:show, :update, :destroy, :pdf]
+    skip_before_action :authenticate_user_from_token!, only: [:pdf]
 
     # GET /links
     # GET /links.json
@@ -49,13 +50,13 @@ module V1
     end
 
     def pdf
-      skip_before_action :authenticate_user_from_token!
-
-      @link.create_pdf
-
-      html = File.read("#{Rails.root}/public/example.html")
-
-      render :text => html
+      path = @link.create_pdf.path
+      respond_to do |format|
+        format.html
+        format.pdf do
+          render pdf: path   # Excluding ".pdf" extension.
+        end
+      end
     end
 
     private
