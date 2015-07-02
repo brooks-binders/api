@@ -5,7 +5,6 @@ class CreateBinders < ActiveRecord::Migration
       t.string :name
       t.text :description
       t.string :export_path
-
       t.timestamps null: false
     end
   end

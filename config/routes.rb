@@ -10,6 +10,8 @@ Rails.application.routes.draw do
 
   namespace :v1, defaults: { format: :json } do
     resource :login, only: [:create], controller: :sessions
+    resources :binders, except: [:new, :edit]
+    resources :links, except: [:new, :edit]
   end
 
   # Example of regular route:

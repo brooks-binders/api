@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::API
   # include AbstractController::Translation
+  include ActionController::Serialization
 
   before_action :authenticate_user_from_token!
 
@@ -9,6 +10,7 @@ class ApplicationController < ActionController::API
   # User Authentication
   # Authenticates the user with OAuth2 Resource Owner Password Credentials Grant
   def authenticate_user_from_token!
+
     auth_token = request.headers['Authorization']
 
     if auth_token
@@ -16,11 +18,6 @@ class ApplicationController < ActionController::API
     else
       authentication_error
     end
-  end
-
-  # Don't use root
-  def default_serializer_options
-    {root: false}
   end
 
   private

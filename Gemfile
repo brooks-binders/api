@@ -4,7 +4,7 @@ ruby '2.2.1'
 gem 'rails', '4.2.1'
 gem 'rails-api'
 gem 'pg'
-gem 'active_model_serializers', '0.8.3'
+gem "active_model_serializers"
 gem 'rack-cors', :require => 'rack/cors'
 gem 'puma'
 gem 'devise'
@@ -18,10 +18,11 @@ group :test, :development do
   gem 'web-console'
   gem 'spring'
   gem 'colorize'
-  gem 'growl'
-  gem 'rb-fsevent'
+  gem 'growl', :require => false # mac os x
+  gem 'rb-fsevent', :require => false # mac os x
   gem 'guard-rspec'
   gem 'spring-commands-rspec'
+  gem 'database_cleaner'
 end
 
 group :production, :staging do
