@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'home#index'
+  # root :to => "home#index"
 
   namespace :v1, defaults: { format: :json } do
     resource :login, only: [:create], controller: :sessions
