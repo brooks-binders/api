@@ -8,10 +8,12 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   # root :to => "home#index"
 
-  namespace :v1, defaults: { format: :json } do
-    resource :login, only: [:create], controller: :sessions
-    resources :binders, except: [:new, :edit]
-    resources :links, except: [:new, :edit]
+  scope '/api' do
+    namespace :v1, defaults: { format: :json } do
+      resource :login, only: [:create], controller: :sessions
+      resources :binders, except: [:new, :edit]
+      resources :links, except: [:new, :edit]
+    end
   end
 
   # Example of regular route:
