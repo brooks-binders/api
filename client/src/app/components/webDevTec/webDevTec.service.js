@@ -1,6 +1,13 @@
-angular.module "client"
-  .service "webDevTec", () ->
-    data = [
+(function() {
+  'use strict';
+
+  angular
+      .module('bindersUi')
+      .service('webDevTec', webDevTec);
+
+  /** @ngInject */
+  function webDevTec() {
+    var data = [
       {
         'title': 'AngularJS',
         'url': 'https://angularjs.org/',
@@ -56,22 +63,19 @@ angular.module "client"
         'logo': 'node-sass.png'
       },
       {
-        'title': 'CoffeeScript',
-        'url': 'http://coffeescript.org/',
-        'description': 'CoffeeScript, \'a little language that compiles into JavaScript\'.',
-        'logo': 'coffeescript.png'
-      },
-      {
         'key': 'jade',
         'title': 'Jade',
         'url': 'http://jade-lang.com/',
         'description': 'Jade is a high performance template engine heavily influenced by Haml and implemented with JavaScript for node.',
         'logo': 'jade.png'
       }
-    ]
+    ];
 
-    getTec = ->
-      data
+    this.getTec = getTec;
 
-    @getTec = getTec
-    return
+    function getTec() {
+      return data;
+    }
+  }
+
+})();
