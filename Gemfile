@@ -10,6 +10,9 @@ gem 'puma'
 gem 'devise'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
+gem 'wkhtmltopdf-binary'
+gem 'pdfkit'
+
 group :test, :development do
   gem 'rspec-rails'
   gem 'faker'
