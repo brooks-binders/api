@@ -19,7 +19,7 @@ gulp.task('partials', ['markups'], function () {
       quotes: true
     }))
     .pipe($.angularTemplatecache('templateCacheHtml.js', {
-      module: 'bindersUi',
+      module: 'clipbooksApp',
       root: 'app'
     }))
     .pipe(gulp.dest(conf.paths.tmp + '/partials/'));
@@ -47,7 +47,7 @@ gulp.task('html', ['inject', 'partials'], function () {
     .pipe($.uglify({ preserveComments: $.uglifySaveLicense })).on('error', conf.errorHandler('Uglify'))
     .pipe(jsFilter.restore())
     .pipe(cssFilter)
-    .pipe($.replace('../../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/', '../fonts/'))
+    .pipe($.replace('../../bower_components/bootstrap/fonts/', '../fonts/'))
     .pipe($.csso())
     .pipe(cssFilter.restore())
     .pipe(assets.restore())
@@ -81,7 +81,7 @@ gulp.task('other', function () {
 
   return gulp.src([
     path.join(conf.paths.src, '/**/*'),
-    path.join('!' + conf.paths.src, '/**/*.{html,css,js,scss,jade}')
+    path.join('!' + conf.paths.src, '/**/*.{html,css,js,less,jade}')
   ])
     .pipe(fileFilter)
     .pipe(gulp.dest(path.join(conf.paths.dist, '/')));

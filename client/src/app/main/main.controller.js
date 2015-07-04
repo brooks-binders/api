@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('bindersUi')
+    .module('clipbooksApp')
     .controller('MainController', MainController);
 
   /** @ngInject */
@@ -11,7 +11,7 @@
 
     vm.awesomeThings = [];
     vm.classAnimation = '';
-    vm.creationDate = 1435841970379;
+    vm.creationDate = 1435966165032;
     vm.showToastr = showToastr;
 
     activate();

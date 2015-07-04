@@ -9,9 +9,7 @@ var browserSyncSpa = require('browser-sync-spa');
 
 var util = require('util');
 
-// var proxyMiddleware = require('http-proxy-middleware');
-
-// var modRewrite = require('connect-modrewrite');
+var proxyMiddleware = require('http-proxy-middleware');
 
 var exec = require('child_process').exec;
 
@@ -27,7 +25,10 @@ function browserSyncInit(baseDir, browser) {
 
   var server = {
     baseDir: baseDir,
-    routes: routes
+    routes: routes,
+    middleware: [
+      proxyMiddleware('/api', { target: 'http://localhost:3000' })
+    ]
   };
 
   /*
@@ -37,9 +38,7 @@ function browserSyncInit(baseDir, browser) {
    *
    * For more details and option, https://github.com/chimurai/http-proxy-middleware/blob/v0.0.5/README.md
    */
-  // server.middlware = proxyMiddleware('/api', { target: 'http://localhost:3000'});
-
-  // server.middleware = modRewrite(['^/api/(.*)$ http://localhost:3000/api/v1/$1 [P]']);
+  // server.middleware = proxyMiddleware('/users', {target: 'http://jsonplaceholder.typicode.com', proxyHost: 'jsonplaceholder.typicode.com'});
 
   browserSync.instance = browserSync.init({
     port: 9000,
@@ -54,8 +53,8 @@ browserSync.use(browserSyncSpa({
 }));
 
 gulp.task('rails', function() {
-  exec('../bin/rails server');
-})
+  exec("../bin/rails server");
+});
 
 gulp.task('serve', ['watch'], function () {
   browserSyncInit([path.join(conf.paths.tmp, '/serve'), conf.paths.src]);

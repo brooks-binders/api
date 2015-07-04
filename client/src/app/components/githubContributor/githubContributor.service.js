@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('bindersUi')
+    .module('clipbooksApp')
     .factory('githubContributor', githubContributor);
 
   /** @ngInject */

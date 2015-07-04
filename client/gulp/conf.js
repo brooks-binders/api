@@ -13,7 +13,7 @@ var gutil = require('gulp-util');
  */
 exports.paths = {
   src: 'src',
-  dist: '../public',
+  dist: 'dist',
   tmp: '.tmp',
   e2e: 'e2e'
 };
@@ -24,7 +24,7 @@ exports.paths = {
  *  to inject css preprocessor deps and js files in karma
  */
 exports.wiredep = {
-  exclude: [/bootstrap.js$/, /bootstrap-sass-official\/.*\.js/, /bootstrap\.css/],
+  exclude: [/bootstrap.js$/, /bootstrap\.css/],
   directory: 'bower_components'
 };
 

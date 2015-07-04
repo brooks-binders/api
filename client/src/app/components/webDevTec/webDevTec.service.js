@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-      .module('bindersUi')
+      .module('clipbooksApp')
       .service('webDevTec', webDevTec);
 
   /** @ngInject */
@@ -57,10 +57,10 @@
         'logo': 'ui-bootstrap.png'
       },
       {
-        'title': 'Sass (Node)',
-        'url': 'https://github.com/sass/node-sass',
-        'description': 'Node.js binding to libsass, the C version of the popular stylesheet preprocessor, Sass.',
-        'logo': 'node-sass.png'
+        'title': 'Less',
+        'url': 'http://lesscss.org/',
+        'description': 'Less extends the CSS language, adding features that allow variables, mixins, functions and many other techniques.',
+        'logo': 'less.png'
       },
       {
         'key': 'jade',
